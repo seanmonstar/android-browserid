@@ -5,7 +5,9 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="15" />
+        android:targetSdkVersion="16" />
+        
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -17,6 +19,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="activity" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PersonaLoginActivity"
+            android:label="@string/title_activity_persona" >
         </activity>
     </application>
 

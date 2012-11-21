@@ -2,17 +2,22 @@ package org.persona.login.android;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.support.v4.app.NavUtils;
 
 public class PersonaActivity extends Activity {
+	
+	private static final String TAG = "PersonaTestActivity";
+	private static final int LOGIN_RESULT = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_persona);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -30,6 +35,16 @@ public class PersonaActivity extends Activity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    public void login(View btn) {
+    	Log.d(TAG, "login clicked");
+    	Intent i = new Intent(this, PersonaLoginActivity.class);
+    	startActivityForResult(i, LOGIN_RESULT);
+    }
+    
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	Log.d(TAG, "activty result returned");
     }
 
 }
